@@ -1,5 +1,6 @@
 <script>
   import './app.css';
+    import Social from './Social.svelte';
 
   const imgs = [
     'uwu.jpg',
@@ -29,11 +30,13 @@
     <h1 class="text-3xl">Richard Hyena</h1>
     <div class="w-1/2 h-0.5 bg-amber-300 my-2"></div>
     <p>male, he/hi, gay, 23, engaged</p>
-    <a href="/">Telegram</a>
-    <a href="/">About me</a>
-    <a href="/">Creative Channel</a>
-    <a href="/">Github</a>
-    <a href="/">Bluesky</a>
+    <div class="flex flex-col gap-4 mt-2">
+      <Social name="Telegram" logo="tg.svg" link="https://t.me/RichardHyena"/>
+      <Social name="About me" logo="info.svg"/>
+      <Social name="Creative Channel" logo="palette.svg"/>
+      <Social name="Github" logo="github.svg"/>
+      <Social name="Bluesky" logo="bluesky.svg"/>
+    </div>
   </div>
   <footer class="absolute bottom-0 p-2">2024, by Richard</footer>
 </main>
