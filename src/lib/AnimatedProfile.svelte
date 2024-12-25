@@ -26,6 +26,9 @@
 </div>
 
 <style lang="postcss">
+  img {
+    animation: fadeIn 1.5s;
+  }
   .dot {
     @apply aspect-square bg-amber-300 rounded-full absolute;
   }
