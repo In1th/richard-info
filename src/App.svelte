@@ -18,19 +18,19 @@
 <img src="bg.jpg" alt="" class="main-bg h-screen w-screen object-cover absolute z-0"/>
 <div class="absolute h-screen w-screen z-10 bg-black/25"></div>
 <main class="relative z-10 flex justify-center items-center min-h-screen">
-  <div class="flex flex-col md:flex-row items-center bg-neutral-700/40 rounded-xl w-full mx-4 py-8 md:px-8 gap-1">
-    <div class="flex flex-col items-center gap-2 md:w-1/2">
+  <div class="flex flex-col 2xl:flex-row items-center bg-neutral-700/40 rounded-xl w-full mx-4 py-8 2xl:py-16 2xl:px-8 gap-1">
+    <div class="flex flex-col items-center gap-2 2xl:w-1/2">
       <AnimatedProfile/>
-      <h1 class="z-20 text-3xl md:text-5xl md:pb-4">Richard Hyena</h1>
-      <div class="w-full h-0.5 bg-amber-300 my-1 md:hidden"></div>
-      <div class="flex flex-col md:flex-row gap-2">
+      <h1 class="z-20 text-3xl 2xl:text-5xl 2xl:py-6">Richard Hyena</h1>
+      <div class="w-full h-0.5 bg-amber-300 my-1 2xl:hidden"></div>
+      <div class="flex flex-col 2xl:flex-row gap-2">
         <p>🇵🇱 • ⏳ {calculateAge()} yo • ♂️ (he/him)</p>
         <p>🏳️‍🌈 gay • 💍 engaged</p>
       </div>
       <p>webdev • DJing • 3D printing</p>
     </div>
     <div
-      class="flex flex-col md:flex-row md:justify-center gap-4 mt-2 md:mx-32 md:w-1/2 md:flex-grow"
+      class="flex flex-col 2xl:flex-row 2xl:justify-center gap-4 mt-2 2xl:mx-32 2xl:w-1/2 2xl:flex-grow"
       role="group"
       onmouseleave={resetFocus}
       onblur={resetFocus}

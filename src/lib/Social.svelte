@@ -27,24 +27,23 @@
 
 <a
   href={link}
-  class="relative bg-black rounded-md shadowxl-xl w-64 md:w-16 h-30 md:h-[600px] overflow-hidden transition-all"
+  class="relative bg-black rounded-md shadowxl-xl w-64 2xl:w-16 h-30 2xl:h-[600px] overflow-hidden transition-all"
   class:selected={selectedSocial}
   onmouseover={onHover}
   onfocus={onHover}
 >
-    <img src={bg} alt="" class="anim-bg absolute z-10 object-contain md:h-full md:object-cover"/>
+    <img src={bg} alt="" class="anim-bg absolute z-10 object-contain 2xl:h-full 2xl:object-cover"/>
     <div class="bg-gray-700/50 absolute z-20 h-full w-full"></div>
-    <div class="z-30 relative p-2 px-4 flex gap-2 md:flex-col h-full overflow-hidden">
+    <div class="z-30 relative p-2 px-4 flex gap-2 2xl:flex-col h-full overflow-hidden">
         <img
           src={logo}
           alt=""
-          class="rounded-full aspect-square w-6 stroke-white md:mx-auto"
+          class="rounded-full aspect-square w-6 stroke-white 2xl:mx-auto"
           class:img-selected={selectedSocial}
         />
         <p
-          class="my-auto md:hidden"
+          class="my-auto 2xl:hidden"
           class:title-selected={selectedSocial}
-          class:about-me={isAboutMe}
         >
           {name}
         </p>
@@ -53,10 +52,10 @@
 
 <style lang='postcss'>
     .selected {
-      @apply md:flex-grow;
+      @apply 2xl:flex-grow;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1536px) {
       .title-selected {
         @apply block text-7xl text-wrap mt-auto mb-0 transition-all pb-4 px-2;
       }
@@ -70,7 +69,7 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1536px) {
       a:nth-child(even) > div {
           @apply flex-row-reverse;
       }
@@ -80,7 +79,7 @@
         animation: slideUp 1.5s ease-out;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1536px) {
       .anim-bg {
           animation: slideLeft .7s ease-out;
       }
