@@ -11,7 +11,13 @@
   const img = imgs[Math.floor(Math.random() * imgs.length)] ?? imgs[0]
 </script>
 
-<div class="z-10 relative aspect-square h-[220px] justify-center items-center flex">
+<svelte:head>
+  {#each imgs as img_href}
+     <link rel="preload" href={img_href} as="image"/>
+  {/each}
+</svelte:head>
+
+<div class="z-10 relative aspect-square h-[220px] md:h-[450px] justify-center items-center flex">
     <div class="animate-rotate-rev absolute top-0 w-full h-full border-amber-300 border-[1px] border-dashed rounded-full"></div>
     <div class="absolute top-0 w-full h-full animate-rotate-f2">
       <div class="dot w-1 top-[-10px] left-1/2"></div>
@@ -22,7 +28,7 @@
     <div class="absolute top-0 w-full h-full animate-rotate-f1">
       <div class="dot w-1 right-[-30px] top-1/2"></div>
     </div>
-    <img src={img} alt="main profile" class="aspect-square h-[200px] overflow-hidden object-cover rounded-full border-amber-300 border-4"/>
+    <img src={img} alt="main profile" class="aspect-square h-[200px] md:h-[350px] overflow-hidden object-cover rounded-full border-amber-300 border-4"/>
 </div>
 
 <style lang="postcss">
