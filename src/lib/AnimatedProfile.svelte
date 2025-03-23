@@ -1,19 +1,25 @@
-<script>
+<script module>
   const imgs = [
-    'uwu.jpg',
-    'honk.png',
-    'mage.jpg',
-    'oppie.jpg',
-    'puter.jpg',
-    'd2.jpg',
+    {href: 'uwu.jpg', author: ''},
+    {href:'honk.jpg', author: '@partydog365'},
+    {href:'mage.jpg', author: '@Waro_Soulmate'},
+    {href:'oppie.jpg', author: '@NetSushi'},
+    {href:'puter.jpg', author: '@NetSushi'},
+    {href:'d2.jpg', author: '@partydog365'},
   ];
 
-  const img = imgs[Math.floor(Math.random() * imgs.length)] ?? imgs[0]
+  const {href, author} = $state(imgs[Math.floor(Math.random() * imgs.length)] ?? imgs[0]);
+  
+  export let getImageAuthorStr = () => {
+    if (!author) return '';
+
+    return `art by ${author} on TG`;
+  };
 </script>
 
 <svelte:head>
-  {#each imgs as img_href}
-     <link rel="preload" href={img_href} as="image"/>
+  {#each imgs as {href}}
+     <link rel="preload" href={href} as="image"/>
   {/each}
 </svelte:head>
 
@@ -28,7 +34,7 @@
     <div class="absolute top-0 w-full h-full animate-rotate-f1">
       <div class="dot w-1 2xl:w-2 right-[-30px] 2xl:right-[-60px] top-1/2"></div>
     </div>
-    <img src={img} alt="main profile" class="aspect-square h-[200px] 2xl:h-[350px] overflow-hidden object-cover rounded-full border-amber-300 border-4"/>
+    <img src={href} alt="main profile" class="aspect-square h-[200px] 2xl:h-[350px] overflow-hidden object-cover rounded-full border-amber-300 border-4"/>
 </div>
 
 <style lang="postcss">

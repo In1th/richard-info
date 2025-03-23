@@ -1,7 +1,7 @@
 <script>
   import './app.css';
   import { calculateAge } from './lib/age';
-  import AnimatedProfile from './lib/AnimatedProfile.svelte';
+  import AnimatedProfile, { getImageAuthorStr } from './lib/AnimatedProfile.svelte';
   import Social from './lib/Social.svelte';
   import { resetFocus } from './lib/Social.svelte';
 </script>
@@ -23,7 +23,7 @@
       <AnimatedProfile/>
       <h1 class="z-20 text-3xl 2xl:text-5xl 2xl:py-6">Richard Hyena</h1>
       <div class="w-full h-0.5 bg-amber-300 my-1 2xl:hidden"></div>
-      <div class="flex flex-col 2xl:flex-row gap-2">
+      <div class="flex flex-col 2xl:flex-row gap-2 text-center">
         <p>🇵🇱 • ⏳ {calculateAge()} yo • ♂️ (he/him)</p>
         <p>🏳️‍🌈 gay • 💍 engaged</p>
       </div>
@@ -42,7 +42,10 @@
       <Social bg="bg-5.jpg" name="Bluesky" logo="bluesky.svg" link="https://bsky.app/profile/richardhyena.bsky.social"/>
     </div>
   </div>
-  <footer class="absolute bottom-0 p-2">2024-2025, by Richard</footer>
+  <footer class="absolute bottom-0 p-2 text-sm text-center">
+    <p>{getImageAuthorStr()}</p>
+    <p>2024-2025, by Richard</p>
+  </footer>
 </main>
 
 <style lang="postcss">

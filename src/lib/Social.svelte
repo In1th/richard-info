@@ -2,7 +2,6 @@
     let currentName = $state<string>('About me');
 
     export let resetFocus = () => {
-      console.log('resetting focus');
       currentName = 'About me';
     }
 </script>
