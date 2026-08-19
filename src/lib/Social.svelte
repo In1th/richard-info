@@ -1,8 +1,8 @@
 <script module>
-    let currentName = $state<string>('About me');
+    let currentName = $state<string>('Soundcloud');
 
     export let resetFocus = () => {
-      currentName = 'About me';
+      currentName = 'Soundcloud';
     }
 </script>
 
@@ -21,7 +21,6 @@
   }
 
   const selectedSocial = $derived(currentName === name);
-  const isAboutMe = $derived(name === 'About me');
 </script>
 
 <a
@@ -56,7 +55,7 @@
 
     @media (min-width: 1536px) {
       .title-selected {
-        @apply block text-7xl text-wrap mt-auto mb-0 transition-all pb-4 px-2;
+        @apply block text-5xl text-wrap mt-auto mb-0 transition-all pb-4 px-2;
       }
 
       .about-me {

@@ -1,11 +1,11 @@
 <script module>
   const imgs = [
     {href: 'uwu.jpg', author: ''},
-    {href:'honk.jpg', author: '@partydog365'},
+    {href:'honk.jpg', author: '@dorianthreehearts'},
     {href:'mage.jpg', author: '@Waro_Soulmate'},
     {href:'oppie.jpg', author: '@NetSushi'},
     {href:'puter.jpg', author: '@NetSushi'},
-    {href:'d2.jpg', author: '@partydog365'},
+    {href:'d2.jpg', author: '@dorianthreehearts'},
   ];
 
   const {href, author} = $state(imgs[Math.floor(Math.random() * imgs.length)] ?? imgs[0]);
