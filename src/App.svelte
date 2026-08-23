@@ -1,6 +1,8 @@
 <script>
   import './app.css';
   import Social from './lib/Social.svelte';
+
+  let desktopMotion = true;
 </script>
 
 <svelte:head>

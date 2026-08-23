@@ -19,13 +19,34 @@ html, body {
 
 body {
   @apply p-0 text-black;
+  position: relative;
+  overflow: hidden;
   background:
     repeating-conic-gradient(var(--color-bg) 0 25%, var(--color-bg-dark) 0 50%)
       50% / var(--square-size) var(--square-size);
+  background-position: 0% 0%;
+  animation: checkered-drift 26s linear infinite;
   /* font-family: 'Segoe UI', Frutiger, 'Helvetica Neue', Arial, sans-serif; */
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+@keyframes checkered-drift {
+  0% {
+    background-position: 0% 0%;
+    background-size: var(--square-size) var(--square-size);
+  }
+  100% {
+    background-position: 100% 0%;
+    background-size: calc(var(--square-size) + 6px) calc(var(--square-size) + 6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
 }
 
 /* Aero / Frutiger-inspired UI tokens */
@@ -190,10 +211,10 @@ a:hover {
 
 .desktop-checkerbox input {
   position: absolute;
-  opacity: 0;
   inset: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
   cursor: pointer;
 }
 
@@ -226,14 +247,14 @@ a:hover {
 
 .desktop-checkerbox-check {
   position: absolute;
-  right: 0.5rem;
+  right: 0.7rem;
   width: 0.7rem;
   height: 0.7rem;
   border-radius: 0.2rem;
-  border: 2px solid rgba(255,255,255,0.75);
   background: rgba(122, 203, 245, 0.15);
+  border: 2px solid rgba(255,255,255,0.8);
   opacity: 0;
-  transform: translateX(0.5rem) scale(0.8);
+  transform: translateX(0.4rem) scale(0.75);
   transition: opacity 0.2s ease, transform 0.25s ease;
 }
 
