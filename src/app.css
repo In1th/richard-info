@@ -20,7 +20,6 @@ html, body {
 body {
   @apply p-0 text-black;
   position: relative;
-  overflow: hidden;
   background:
     repeating-conic-gradient(var(--color-bg) 0 25%, var(--color-bg-dark) 0 50%)
       50% / var(--square-size) var(--square-size);
