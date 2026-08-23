@@ -25,7 +25,7 @@ body {
     repeating-conic-gradient(var(--color-bg) 0 25%, var(--color-bg-dark) 0 50%)
       50% / var(--square-size) var(--square-size);
   background-position: 0% 0%;
-  animation: checkered-drift 26s linear infinite;
+  /* animation: checkered-drift 42s linear infinite; */
   /* font-family: 'Segoe UI', Frutiger, 'Helvetica Neue', Arial, sans-serif; */
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
