@@ -4,18 +4,268 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* darker desaturated/pastel background for softer Aero look */
+  --color-bg: #9C93C2;
+  --color-bg-dark: #78709A;
+  --square-size: 28px;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
 body {
-  @apply p-0 overflow-x-hidden text-white bg-black;
+  @apply p-0 text-black;
+  background:
+    repeating-conic-gradient(var(--color-bg) 0 25%, var(--color-bg-dark) 0 50%)
+      50% / var(--square-size) var(--square-size);
+  /* font-family: 'Segoe UI', Frutiger, 'Helvetica Neue', Arial, sans-serif; */
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
+/* Aero / Frutiger-inspired UI tokens */
+:root {
+  --aero-radius: 0.9rem;
+  --aero-glass-top: rgba(255,255,255,0.22);
+  --aero-glass-bottom: rgba(255,255,255,0.04);
+  --aero-border: rgba(255,255,255,0.45);
+  --aero-accent-1: #7fd3ff;
+  --aero-accent-2: #3aa0ff;
+  --aero-text: rgba(13,30,45,0.95);
+  --aero-shadow: 0 10px 20px rgba(8,20,36,0.25), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+a:hover {
+  text-decoration: unset!important;
+}
+
+/* Window overrides to unify look with 7.css windows */
+.window.glass.about-window {
+  border-radius: calc(var(--aero-radius) + 0.2rem);
+  background: linear-gradient(180deg, var(--aero-glass-top), var(--aero-glass-bottom));
+  /* avoid duplicating 7.css border/shadow — rely on base window styles */
+  color: var(--aero-text);
+}
+
+.window.glass.about-window .title-bar {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.title-bar-text {
+  font-family: 'Segoe UI', Frutiger, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Music layout helpers */
+.music-widget .music-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* larger spacing to match increased sizes */
+}
+
+.music-widget .play-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem; /* 48px */
+  height: 3rem;
+  line-height: 1;
+}
+
+/* larger album art inside music widget */
+.music-widget .album-art {
+  width: 4rem; /* 64px */
+  height: 4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-widget .album-art img {
+  width: 3.5rem; /* 56px */
+  height: 3.5rem;
+  object-fit: contain;
+}
+
+/* Social container helpers (wrapping handled in markup) */
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Narrow mobile: keep music row horizontal with icon on left, and make socials one row with smaller gaps */
+@media (max-width: 420px) {
+  .music-widget .music-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
   }
-  100% {
-    opacity: 1;
+
+  .music-widget .album-art {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .music-widget .album-art img {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .music-widget .play-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .social-row {
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
   }
 }
+
+/* Desktop: align social icons in a centered 3-column grid for neat rows (e.g., 6 icons = 3x2) */
+@media (min-width: 1024px) {
+  /* Use flex-based 3-column layout (no grid) with tighter vertical spacing */
+  .social-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 1.25rem;
+    row-gap: 0.75rem; /* reduced vertical spacing for tighter rows */
+    align-items: flex-start;
+  }
+
+  /* Make each icon take roughly one third of the container width while capping its visual size */
+  .social-row .social-icon {
+    flex: 0 0 calc(33.333% - 1rem);
+    max-width: 8.5rem; /* keep icon containers from stretching too wide */
+    margin: 0 auto;
+  }
+
+  .social-row .social-art {
+    margin: 0 auto;
+  }
+}
+
+/* Music widget visual harmony */
+.music-widget {
+  border-radius: var(--aero-radius);
+  border: 1px solid rgba(255,255,255,0.28);
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.03));
+  box-shadow: 0 12px 28px rgba(8,20,36,0.22), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.music-widget .play-btn,
+.music-widget a[aria-label] {
+  border-radius: 999px;
+  box-shadow: 0 8px 14px rgba(10,50,90,0.18), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* Social icons: unify sizing and type */
+.social-icon {
+  font-family: 'Segoe UI', Frutiger, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.desktop-checkerbox {
+  position: relative;
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.9rem 0.55rem 0.7rem;
+  border: 1px solid rgba(255,255,255,0.38);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 10px 20px rgba(11, 38, 59, 0.12);
+  color: rgba(13, 30, 45, 0.9);
+  user-select: none;
+}
+
+.desktop-checkerbox input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.desktop-checkerbox-track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 3.8rem;
+  height: 2.1rem;
+  padding: 0.15rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(92, 104, 122, 0.25), rgba(62, 73, 92, 0.45));
+  border: 1px solid rgba(58, 67, 82, 0.22);
+  box-shadow: inset 0 1px 3px rgba(15, 24, 35, 0.35), inset 0 -1px 1px rgba(255,255,255,0.18);
+  overflow: hidden;
+  transition: background 0.25s ease;
+}
+
+.desktop-checkerbox-thumb {
+  position: absolute;
+  left: 0.18rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(214, 230, 244, 0.9));
+  border: 1px solid rgba(86, 108, 131, 0.45);
+  box-shadow: 0 3px 9px rgba(9, 26, 48, 0.22), inset 0 1px 0 rgba(255,255,255,0.9);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+}
+
+.desktop-checkerbox-check {
+  position: absolute;
+  right: 0.5rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 0.2rem;
+  border: 2px solid rgba(255,255,255,0.75);
+  background: rgba(122, 203, 245, 0.15);
+  opacity: 0;
+  transform: translateX(0.5rem) scale(0.8);
+  transition: opacity 0.2s ease, transform 0.25s ease;
+}
+
+.desktop-checkerbox input:checked + .desktop-checkerbox-track {
+  background: linear-gradient(180deg, rgba(120, 215, 255, 0.7), rgba(54, 148, 213, 0.9));
+}
+
+.desktop-checkerbox input:checked + .desktop-checkerbox-track .desktop-checkerbox-thumb {
+  transform: translateX(1.6rem);
+  box-shadow: 0 4px 12px rgba(17, 116, 168, 0.26), inset 0 1px 0 rgba(255,255,255,1);
+}
+
+.desktop-checkerbox input:checked + .desktop-checkerbox-track .desktop-checkerbox-check {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.desktop-checkerbox-label {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.4);
+}
+
+@media (min-width: 1024px) {
+  .desktop-checkerbox {
+    display: inline-flex;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Small accessibility and smoothing tweaks */
+img { image-rendering: -webkit-optimize-contrast; }

@@ -1,104 +1,109 @@
-<script module>
-    let currentName = $state<string>('Soundcloud');
-
-    export let resetFocus = () => {
-      currentName = 'Soundcloud';
-    }
-</script>
-
 <script lang="ts">
   type SocialProps = {
     link: string;
     logo: string;
     name: string;
-    bg: string;
+    hideOnMobile?: boolean;
   }
 
-  const {link = '/', logo, name, bg}: SocialProps = $props();
+  const {link = '/', logo, name, hideOnMobile = false}: SocialProps = $props();
 
-  const onHover = () => {
-    currentName = name;
-  }
-
-  const selectedSocial = $derived(currentName === name);
 </script>
 
 <a
   href={link}
-  class="relative bg-black rounded-md shadowxl-xl w-64 2xl:w-16 h-30 2xl:h-[600px] overflow-hidden transition-all"
-  class:selected={selectedSocial}
-  onmouseover={onHover}
-  onfocus={onHover}
+  class:hide-on-mobile={hideOnMobile}
+  class="social-icon"
 >
-    <img src={bg} alt="" class="anim-bg absolute z-10 object-contain 2xl:h-full 2xl:object-cover"/>
-    <div class="bg-gray-700/50 absolute z-20 h-full w-full"></div>
-    <div class="z-30 relative p-2 px-4 flex gap-2 2xl:flex-col h-full overflow-hidden">
-        <img
-          src={logo}
-          alt=""
-          class="rounded-full aspect-square w-6 stroke-white 2xl:mx-auto"
-          class:img-selected={selectedSocial}
-        />
-        <p
-          class="my-auto 2xl:hidden"
-          class:title-selected={selectedSocial}
-        >
-          {name}
-        </p>
-    </div>
+  <div class="social-art">
+    <img src={logo} alt="" class="social-logo" />
+  </div>
+  <span class="social-label">{name}</span>
 </a>
 
 <style lang='postcss'>
-    .selected {
-      @apply 2xl:flex-grow;
+  .hide-on-mobile {
+    display: none!important;
+  }
+
+  @media (min-width: 1024px) {
+    .hide-on-mobile {
+        display: flex!important;
+    }
+  }
+  
+
+  .social-icon {
+    @apply flex flex-col items-center relative w-32 h-36 mt-2 text-white;
+    text-decoration: none;
+    transition: transform 0.15s ease, filter 0.15s ease;
+    filter: drop-shadow(0 2px 0 rgba(38, 72, 107, 0.25));
+    font-family: 'Segoe UI', Frutiger, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  .social-icon:hover,
+  .social-icon:focus-visible,
+  .social-icon.selected {
+    transform: translateY(-0.1rem);
+    filter: drop-shadow(0 4px 14px rgba(25, 70, 110, 0.24));
+  }
+
+  .social-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.8rem;
+    height: 5.8rem;
+    border-radius: calc(var(--aero-radius, 0.9rem) + 0.1rem);
+    background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.42);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.55),
+      inset 0 -6px 14px rgba(9, 40, 76, 0.16),
+      0 10px 26px rgba(13, 40, 80, 0.12);
+    backdrop-filter: blur(2px);
+  }
+
+  .social-logo {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.24));
+    opacity: 0.98;
+  }
+
+  .social-label {
+    display: block;
+    margin-top: 0.35rem;
+    width: 100%;
+    color: #ffffff;
+    font-size: 0.7rem;
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-shadow: 1px 1px 0 rgba(19, 42, 71, 0.9);
+    word-wrap: break-word;
+  }
+
+  @media (max-width: 640px) {
+    .social-icon {
+      width: 5.4rem;
+      min-height: 6.6rem;
     }
 
-    @media (min-width: 1536px) {
-      .title-selected {
-        @apply block text-5xl text-wrap mt-auto mb-0 transition-all pb-4 px-2;
-      }
-
-      .about-me {
-        @apply text-nowrap;
-      }
-
-      .img-selected {
-        @apply mx-0;
-      }
+    .social-art {
+      width: 3.8rem;
+      height: 3.8rem;
     }
 
-    @media (max-width: 1536px) {
-      a:nth-child(even) > div {
-          @apply flex-row-reverse;
-      }
+    .social-logo {
+      width: 2.8rem;
+      height: 2.8rem;
     }
 
-    .anim-bg {
-        animation: slideUp 1.5s ease-out;
+    .social-label {
+      font-size: 0.66rem;
     }
-
-    @media (min-width: 1536px) {
-      .anim-bg {
-          animation: slideLeft .7s ease-out;
-      }
-    }
-
-
-    @keyframes slideUp {
-      0% {
-        transform: translateY(100%);
-      }
-      100% {
-        transform: translateY(0%);
-      }
-    }
-
-    @keyframes slideLeft {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(0%);
-      }
-    }
+  }
 </style>
