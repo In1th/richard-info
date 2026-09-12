@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div role="tooltip" class="mx-3 w-full max-w-md lg:mt-2">Thanks for KFW! see you at Wroof!</div>
+      <div role="tooltip" class="mx-3 w-full max-w-md lg:mt-2">Wroof! woof, waf :3</div>
     </div>
 
     <div class="flex flex-col items-center gap-4">
@@ -74,6 +74,7 @@
         <Social name="Creative Channel" logo="channel.png" link="https://t.me/richardattempts" />
         <Social name="YouTube" logo="youtube.png" link="https://www.youtube.com/@HI-YEENA" />
         <Social name="X (Twitter)" logo="x.png" link="https://x.com/richard_yeen" />
+        <Social name="Spotify" logo="spotify.png" link="https://open.spotify.com/artist/3aRjrZlQW0JQi7HsmLlH4r?si=MHpogqznROKJJ-gpDX-bVw" hideOnMobile/>
         <Social name="Bandcamp" logo="bandcamp.png" link="https://hi-yeena.bandcamp.com" hideOnMobile/>
         <Social name="TikTok" logo="tiktok.png" link="https://www.tiktok.com/@hiyeenawastaken" hideOnMobile/>
         <Social name="Instagram" logo="instagram.png" link="https://www.instagram.com/hi.yeena.music/" hideOnMobile/>
