@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div role="tooltip" class="mx-3 w-full max-w-md lg:mt-2">Wroof! woof, waf :3</div>
+      <div role="tooltip" class="mx-3 w-full max-w-md lg:mt-2">Let me be the bg music to your fun!</div>
     </div>
 
     <div class="flex flex-col items-center gap-4">
