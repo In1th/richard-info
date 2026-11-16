@@ -44,21 +44,21 @@
           </div>
 
           <div class="min-w-0 flex-1">
-            <p class="truncate text-base font-bold uppercase tracking-[0.12em] text-white/95">Hold it</p>
+            <p class="truncate text-base font-bold uppercase tracking-[0.12em] text-white/95">://space.in/tro</p>
             <div class="mt-2 flex items-center gap-3">
-              <span class="text-sm lg:text-[0.95rem] text-slate-200/80">01:55</span>
+              <span class="text-sm lg:text-[0.95rem] text-slate-200/80">01:07</span>
               <div class="h-3 flex-1 overflow-hidden rounded-full bg-white/15">
-                <div class="h-full w-1/2 rounded-full bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-500"></div>
+                <div class="h-full w-1/5 rounded-full bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-500"></div>
               </div>
-              <span class="text-sm lg:text-[0.95rem] text-slate-200/80">03:45</span>
+              <span class="text-sm lg:text-[0.95rem] text-slate-200/80">05:03</span>
             </div>
           </div>
 
           <a
-            href="https://on.soundcloud.com/bOPux0zJ5t66hxAc7S"
+            href="https://youtu.be/KH6f09wkGS4"
             target="_blank"
             rel="noreferrer"
-            aria-label="Play Hold it by Hi.yeena on SoundCloud"
+            aria-label="Play the latest release"
             class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.03))] text-lg font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_12px_22px_rgba(14,70,124,0.22)] transition hover:scale-105 hover:bg-white/20 play-btn mt-2 lg:mt-0"
           >
             ▶
